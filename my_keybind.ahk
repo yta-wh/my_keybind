@@ -224,8 +224,8 @@ backward_char()
 ;; tuika
 
 ^k::
-	Send, {Shift down}{End}{Shift up}^x
-	Return
+  Send, {Shift down}{End}{Shift up}^c{Del}
+  Return
 
 ^y::
   Send, ^v
