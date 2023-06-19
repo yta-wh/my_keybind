@@ -1,4 +1,4 @@
-;;
+﻿;;
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
 
@@ -249,6 +249,11 @@ backward_char()
 !s::
   Send, ^s
   Return
+
+:*:zh::←
+:*:zj::↓
+:*:zk::↑
+:*:zl::→
 
 #IfWinNotActive
 #IfWinNotActive
