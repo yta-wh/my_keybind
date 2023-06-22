@@ -250,6 +250,14 @@ backward_char()
   Send, ^s
   Return
 
+!p::
+  Send, ^p
+  Return
+
+!n::
+  Send, ^n
+  Return
+
 :*:zh::←
 :*:zj::↓
 :*:zk::↑
