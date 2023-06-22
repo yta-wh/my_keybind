@@ -1,4 +1,4 @@
-;;
+﻿;;
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
 
