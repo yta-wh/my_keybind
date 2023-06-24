@@ -259,6 +259,14 @@ backward_char()
   Send, ^n
   Return
 
+!x::
+  Send, ^x
+  Return
+
+!z::
+  Send, ^z
+  Return
+
 :*:zh::←
 :*:zj::↓
 :*:zk::↑
