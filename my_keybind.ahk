@@ -2,6 +2,21 @@
 ;; An autohotkey script that provides emacs-like keybinding on Windows
 ;;
 
+#Persistent
+#SingleInstance, Force
+#NoEnv
+#UseHook
+#InstallKeybdHook
+#InstallMouseHook
+#HotkeyInterval, 2000
+#MaxHotkeysPerInterval, 200
+Process, Priority,, Realtime
+SendMode, Input
+
+;;
+;; An autohotkey script that provides emacs-like keybinding on Windows
+;;
+
 #Include alt-ime-ahk.ahk
 
 #InstallKeybdHook
@@ -88,7 +103,7 @@ isearch_forward()
 move_beginning_of_line()
 {
   global
-  if is_pre_spc
+  if is_pre_spc or GetKeyState("Shift", "P")
     Send +{HOME}
   Else
     Send {HOME}
@@ -97,7 +112,7 @@ move_beginning_of_line()
 move_end_of_line()
 {
   global
-  if is_pre_spc
+  if is_pre_spc or GetKeyState("Shift", "P")
     Send +{END}
   Else
     Send {END}
@@ -106,7 +121,7 @@ move_end_of_line()
 previous_line()
 {
   global
-  if is_pre_spc
+  if is_pre_spc or GetKeyState("Shift", "P")
     Send +{Up}
   Else
     Send {Up}
@@ -115,7 +130,7 @@ previous_line()
 next_line()
 {
   global
-  if is_pre_spc
+  if is_pre_spc or GetKeyState("Shift", "P")
     Send +{Down}
   Else
     Send {Down}
@@ -124,7 +139,7 @@ next_line()
 forward_char()
 {
   global
-  if is_pre_spc
+  if is_pre_spc or GetKeyState("Shift", "P")
     Send +{Right}
   Else
     Send {Right}
@@ -133,7 +148,7 @@ forward_char()
 backward_char()
 {
   global
-  if is_pre_spc
+  if is_pre_spc or GetKeyState("Shift", "P")
     Send +{Left}
   Else
     Send {Left}
@@ -179,37 +194,37 @@ backward_char()
 ;  Return
 
 ;; move cursor
-^a::
+*^a::
   If is_target()
     Send %A_ThisHotkey%
   Else
     move_beginning_of_line()
   Return
-^e::
+*^e::
   If is_target()
     Send %A_ThisHotkey%
   Else
     move_end_of_line()
   Return
-^p::
+*^p::
   If is_target()
     Send %A_ThisHotkey%
   Else
     previous_line()
   Return
-^n::
+*^n::
   If is_target()
     Send %A_ThisHotkey%
   Else
     next_line()
   Return
-^b::
+*^b::
   If is_target()
     Send %A_ThisHotkey%
   Else
     backward_char()
   Return
-^f::
+*^f::
   If is_target()
     Send %A_ThisHotkey%
   Else
